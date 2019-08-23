@@ -11,7 +11,7 @@ function App() {
         <Router>
             <NavBar />
             <Switch>
-                <Route path="/posts/list" exact component={PostsList} />
+                <Route path="/posts" exact component={PostsList} />
                 <Route path="/posts/create" exact component={PostsInsert} />
                 <Route 
                     path="/posts/update/:id"

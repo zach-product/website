@@ -24,7 +24,7 @@ class Links extends Component {
                 <Collapse>
                     <List>
                         <Item>
-                            <Link to="/posts/list" className="nav-link">
+                            <Link to="/posts" className="nav-link">
                                 Blog
                             </Link>
                         </Item>
