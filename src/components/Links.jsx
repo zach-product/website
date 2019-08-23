@@ -19,7 +19,7 @@ class Links extends Component {
         return (
             <React.Fragment>
                 <Link to='/' className="navbar-brand">
-                    Prod Forward - Blog Admin
+                    Prod Forward - Admin
                 </Link>
                 <Collapse>
                     <List>
