@@ -142,7 +142,7 @@ class PostsInsert extends Component {
                 />
 
                 <Button onClick={this.handleIncludePost}>Submit Post</Button>
-                <CancelButton href={'/posts/list'}>Cancel</CancelButton>
+                <CancelButton href={'/posts'}>Cancel</CancelButton>
             </Wrapper>
         )
     }
