@@ -140,7 +140,7 @@ class PostsUpdate extends Component {
                 />
 
                 <Button onClick={this.handleUpdatePost}>Update Post</Button>
-                <CancelButton href={'/posts'}>Cancel</CancelButton>
+                <CancelButton href={'/admin'}>Cancel</CancelButton>
             </Wrapper>
         )
     }
