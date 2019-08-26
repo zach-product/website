@@ -55,29 +55,10 @@ class PostsUpdate extends Component {
         }
     }
 
-    handleChangeInputTitle = async e => {
-        const title = e.target.value
-        this.setState({ title })
-    }
-
-    handleChangeInputAuthors = async e => {
-        const authors = e.target.value
-        this.setState({ authors })
-    }
-
-    handleChangeInputTopics = async e => {
-        const topics = e.target.value
-        this.setState({ topics })
-    }
-
-    handleChangeInputContent = async e => {
-        const content = e.target.value
-        this.setState({ content })
-    }
-
-    handleChangeInputPublished = async e => {
-        const published = e.target.value
-        this.setState({ published })
+    handleChangeInput = async e => {
+        const name = e.target.name
+        const value = e.target.value
+        this.setState({ [name]: [value] })
     }
 
     handleUpdatePost = async () => {
@@ -120,37 +101,42 @@ class PostsUpdate extends Component {
                 <Label>Title: </Label>
                 <InputText
                     type="text"
+                    name="title"
                     value={title}
-                    onChange={this.handleChangeInputTitle}
+                    onChange={this.handleChangeInput}
                 />
 
                 <Label>Authors: </Label>
                 <InputText
                     type="text"
+                    name="authors"
                     value={authors}
-                    onChange={this.handleChangeInputAuthors}
+                    onChange={this.handleChangeInput}
                 />
 
                 <Label>Topics: </Label>
                 <InputText
                     type="text"
+                    name="topics"
                     value={topics}
-                    onChange={this.handleChangeInputTopics}
+                    onChange={this.handleChangeInput}
                 />
 
                 <Label>Content: </Label>
                 <InputTextArea
                     type="text"
                     rows="10"
+                    name="content"
                     value={content}
-                    onChange={this.handleChangeInputContent}
+                    onChange={this.handleChangeInput}
                 />
 
                 <Label>Published: </Label>
                 <InputText
                     type="date"
+                    name="published"
                     value={published}
-                    onChange={this.handleChangeInputPublished}
+                    onChange={this.handleChangeInput}
                 />
 
                 <Button onClick={this.handleUpdatePost}>Update Post</Button>

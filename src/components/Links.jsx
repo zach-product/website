@@ -18,20 +18,20 @@ class Links extends Component {
     render() {
         return (
             <React.Fragment>
-                <Link to='/posts' className="navbar-brand">
+                <Link to='/admin' className="navbar-brand">
                     Prod Forward - Admin
                 </Link>
                 <Collapse>
                     <List>
                         <Item>
-                            <Link to="/posts" className="nav-link">
+                            <Link to="/admin" className="nav-link">
                                 Blog
                             </Link>
                         </Item>
                         <Item>
-                            <Link to="/posts/create" className="nav-link">
+                            <button> to="/admin/create" className="nav-link">
                                 Create Post
-                            </Link>
+                            </button>
                         </Item>
                     </List>
                 </Collapse>
