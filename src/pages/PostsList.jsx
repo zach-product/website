@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactTable from 'react-table'
 import api from '../api'
+import { NavBarAdmin } from '../components';
 
 import styled from 'styled-components'
 
@@ -26,7 +27,7 @@ class UpdatePost extends Component {
     updateUser = e => {
         e.preventDefault()
 
-        window.location.href = `/posts/update/${this.props.id}`        
+        window.location.href = `/admin/update/${this.props.id}`        
     }
 
     render() {
@@ -80,11 +81,6 @@ class PostsList extends Component {
 
         const columns = [
             {
-                Header: 'ID',
-                accessor: '_id',
-                filterable: true,
-            },
-            {
                 Header: 'Title',
                 accessor: 'title',
                 filterable: true,
@@ -108,8 +104,9 @@ class PostsList extends Component {
             },
             {
                 Header: 'Published',
-                accessor: 'pubished',
+                accessor: 'published',
                 filterable: true,
+                
             },
             {
                 Header: '',
@@ -141,18 +138,24 @@ class PostsList extends Component {
         }
 
         return (
-            <Wrapper>
-                {showTable && (
-                    <ReactTable
-                        data={posts}
-                        columns={columns}
-                        loading={isLoading}
-                        defaultPageSize={10}
-                        showPageSizeOptions={true}
-                        minRows={0}
-                    />
-                )}
-            </Wrapper>
+            <React.Fragment>
+                <NavBarAdmin />
+                <Wrapper>
+                    {showTable && (
+                        <ReactTable
+                            data={posts}
+                            columns={columns}
+                            loading={isLoading}
+                            showPagination={false}
+                            minRows={0}
+                            defaultSorted={[{
+                                id   : 'published',
+                                desc : true,
+                              }]}
+                        />
+                    )}
+                </Wrapper>
+            </React.Fragment>
         )
     }
 }

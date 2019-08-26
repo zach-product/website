@@ -15,7 +15,7 @@ const Nav = styled.nav.attrs({
     background: #1e2958;
 `
 
-class NavBar extends Component {
+class NavBarAdmin extends Component {
     render() {
         return (
             <Container>
@@ -28,4 +28,4 @@ class NavBar extends Component {
     }
 }
 
-export default NavBar
+export default NavBarAdmin

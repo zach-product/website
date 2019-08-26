@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import api from '../api'
+import { NavBarAdmin } from '../components';
 
 import styled from 'styled-components'
 
@@ -95,53 +96,56 @@ class PostsUpdate extends Component {
     render() {
         const { title, authors, topics, content, published } = this.state
         return (
-            <Wrapper>
-                <Title>Update Blog Post</Title>
+            <React.Fragment>
+                <NavBarAdmin />
+                <Wrapper>
+                    <Title>Update Blog Post</Title>
 
-                <Label>Title: </Label>
-                <InputText
-                    type="text"
-                    name="title"
-                    value={title}
-                    onChange={this.handleChangeInput}
-                />
+                    <Label>Title: </Label>
+                    <InputText
+                        type="text"
+                        name="title"
+                        value={title}
+                        onChange={this.handleChangeInput}
+                    />
 
-                <Label>Authors: </Label>
-                <InputText
-                    type="text"
-                    name="authors"
-                    value={authors}
-                    onChange={this.handleChangeInput}
-                />
+                    <Label>Authors: </Label>
+                    <InputText
+                        type="text"
+                        name="authors"
+                        value={authors}
+                        onChange={this.handleChangeInput}
+                    />
 
-                <Label>Topics: </Label>
-                <InputText
-                    type="text"
-                    name="topics"
-                    value={topics}
-                    onChange={this.handleChangeInput}
-                />
+                    <Label>Topics: </Label>
+                    <InputText
+                        type="text"
+                        name="topics"
+                        value={topics}
+                        onChange={this.handleChangeInput}
+                    />
 
-                <Label>Content: </Label>
-                <InputTextArea
-                    type="text"
-                    rows="10"
-                    name="content"
-                    value={content}
-                    onChange={this.handleChangeInput}
-                />
+                    <Label>Content: </Label>
+                    <InputTextArea
+                        type="text"
+                        rows="10"
+                        name="content"
+                        value={content}
+                        onChange={this.handleChangeInput}
+                    />
 
-                <Label>Published: </Label>
-                <InputText
-                    type="date"
-                    name="published"
-                    value={published}
-                    onChange={this.handleChangeInput}
-                />
+                    <Label>Published: </Label>
+                    <InputText
+                        type="date"
+                        name="published"
+                        value={published}
+                        onChange={this.handleChangeInput}
+                    />
 
-                <Button onClick={this.handleUpdatePost}>Update Post</Button>
-                <CancelButton href={'/admin'}>Cancel</CancelButton>
-            </Wrapper>
+                    <Button onClick={this.handleUpdatePost}>Update Post</Button>
+                    <CancelButton href={'/admin'}>Cancel</CancelButton>
+                </Wrapper>
+            </React.Fragment>
         )
     }
 }

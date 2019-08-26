@@ -7,7 +7,7 @@ const Collapse = styled.div.attrs({
 })``
 
 const List = styled.div.attrs({
-    className: 'navbar-nav mr-auto',
+    className: 'navbar-nav',
 })``
 
 const Item = styled.div.attrs({
@@ -21,20 +21,11 @@ class Links extends Component {
                 <Link to='/admin' className="navbar-brand">
                     Prod Forward - Admin
                 </Link>
-                <Collapse>
-                    <List>
-                        <Item>
-                            <Link to="/admin" className="nav-link">
-                                Blog
-                            </Link>
-                        </Item>
-                        <Item>
-                            <button> to="/admin/create" className="nav-link">
-                                Create Post
-                            </button>
-                        </Item>
-                    </List>
-                </Collapse>
+                <Link to="/admin/create">
+                    <button className="btn btn-primary float-right">
+                        Create Post
+                    </button>
+                </Link>
             </React.Fragment>
         )
     }

@@ -1,5 +1,6 @@
+import Blog from './Blog'
 import PostsList from './PostsList'
 import PostsInsert from './PostsInsert'
 import PostsUpdate from './PostsUpdate'
 
-export { PostsList, PostsInsert, PostsUpdate }
+export { Blog, PostsList, PostsInsert, PostsUpdate }
