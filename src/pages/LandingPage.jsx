@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import NavBar from '../components/NavBar';
-import Intro from '../components/Intro';
+import Home from '../components/Home';
 
 class LandingPage extends Component {
     render() {
         return (
             <React.Fragment>
                 <NavBar />
-                <Intro />
+                <Home />
             </React.Fragment>
         )
     }
