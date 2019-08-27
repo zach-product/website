@@ -11,7 +11,18 @@ class Blog extends Component {
             posts: []
         }
     }
-    
+
+    componentDidMount = async() => {
+        this.setState({ isLoading: true})
+
+        await api.getAllPosts().then(posts => {
+            this.setState({
+                posts: posts.data.data,
+                isLoading: false,
+            })
+        })
+    }
+
     
     render() {
         return (
