@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import NavBar from '../components/NavBar';
+import Intro from '../components/Intro';
 
-class Blog extends Component {
+class LandingPage extends Component {
     render() {
         return (
             <React.Fragment>
                 <NavBar />
-                {/* <Posts /> */}
+                <Intro />
             </React.Fragment>
         )
     }
 }
 
-export default Blog
+export default LandingPage
