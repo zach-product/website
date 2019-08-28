@@ -45,7 +45,7 @@ class Posts extends Component {
 }
 
 const navSpace = {
-    marginTop: "100px" 
+    marginTop: "76px" 
 }
 
 export default Posts
