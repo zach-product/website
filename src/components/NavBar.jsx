@@ -27,40 +27,39 @@ class NavBar extends Component {
 
         return (
             <header className="fixed-top page-header">
-                <div className="">
-                    <nav style={navStyling} className='navbar navbar-expand-lg navbar-dark'>
-                        <div className="container">
-                            <a href="/" className="navbar-brand brand-font align-middle">
-                                <img src={logo} width="50" length="50" alt="Zachary Pritchard" />
-                                <span className="ml-3">Zach Pritchard</span>
-                            </a>
-                            <button 
-                                onClick={this.toggleNavBar} 
-                                className={`${classTwo}`} 
-                                type="button" 
-                                data-toggle="collapse" 
-                                data-target="#navbarNav" 
-                                aria-controls="navbarNav" 
-                                aria-expanded="false" 
-                                aria-label="Toggle navigation">
-                                <span className="navbar-toggler-icon" />
-                            </button>
-                            <div className={`${classOne}`} id="navbarNav">
-                                <ul className="navbar-nav">
-                                    <li className="nav-item mx-2">
-                                        <Link className="nav-link" to="/portfolio">Portfolio</Link>
-                                    </li>
-                                    <li className="nav-item mx-2">
-                                        <Link className="nav-link" to="/blog">Blog</Link>
-                                    </li>
-                                </ul>
-                                <div className="align-middle">
-                                    <a class="btn btn-outline-light font-weight-bold float-right my-1" href="mailto:hello@prodforward.com" role="button">Subscribe</a>
-                                </div>
+                <nav style={navStyling} className='navbar navbar-expand-lg navbar-dark'>
+                    <div className="container">
+                        <a href="/" className="navbar-brand brand-font align-middle">
+                            <img src={logo} width="50" length="50" alt="Zachary Pritchard" />
+                            <span className="ml-3">Zach Pritchard</span>
+                        </a>
+                        <button 
+                            onClick={this.toggleNavBar} 
+                            className={`${classTwo}`} 
+                            type="button"
+                            target="_blank"
+                            data-toggle="collapse" 
+                            data-target="#navbarNav" 
+                            aria-controls="navbarNav" 
+                            aria-expanded="false" 
+                            aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon" />
+                        </button>
+                        <div className={`${classOne}`} id="navbarNav">
+                            <ul className="navbar-nav">
+                                <li className="nav-item mx-2">
+                                    <Link className="nav-link" to="/portfolio">Portfolio</Link>
+                                </li>
+                                <li className="nav-item mx-2">
+                                    <Link className="nav-link" to="/blog">Blog</Link>
+                                </li>
+                            </ul>
+                            <div className="align-middle">
+                                <a class="btn btn-outline-light font-weight-bold float-right my-1" href="mailto:hello@prodforward.com" role="button">Subscribe</a>
                             </div>
                         </div>
-                    </nav>                    
-                </div>
+                    </div>
+                </nav>
             </header>
         )
     }

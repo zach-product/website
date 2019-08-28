@@ -1,6 +1,6 @@
 import NavBar from './NavBar'
-import Intro from './Home'
+import Home from './Home'
 import Projects from './Projects'
-import Posts from './Posts'
+import Posts from './Posts.jsx'
 
-export { NavBar, Intro, Projects, Posts }
+export { NavBar, Home, Projects, Posts }

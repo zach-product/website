@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import NavBar from '../components/NavBar';
+import { NavBar, Posts } from '../components';
 
 class Blog extends Component {
     render() {
         return (
             <React.Fragment>
                 <NavBar />
-                {/* <Posts /> */}
+                <Posts />
             </React.Fragment>
         )
     }
