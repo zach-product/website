@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import moment from 'moment'
 
-class Posts extends Component {
+export default class Posts extends Component {
     constructor(props) {
         super(props)
         
@@ -27,18 +27,34 @@ class Posts extends Component {
 
     render() { 
         const posts = this.state.posts.map((post, index) =>
-            <div className="col-12 col-lg-8 offset-lg-2">
-                <h1 className="my-4" key={index}><a href="/">{post.title}</a></h1>
-                <p key={index}>By: {post.authors.join(', ')}</p>
-                <p key={index}>{post.topics.join(' | ')}</p>
-                <p key={index}>{post.content}</p>
-                <i key={index}>{moment(post.published).format("MMMM D, YYYY")}</i>
-                <hr />
-            </div>
+            <React.Fragment>
+                <tr>
+                    <td key={index}>{post.title}</td>
+                    <td key={index}>{post.authors.join(', ')}</td>
+                    <td key={index}>{post.topics.join(', ')}</td>
+                    <td key={index}>{moment(post.published).format("MMMM D, YYYY")}</td>
+                </tr>
+            </React.Fragment>
         )
         return (
             <div className="container" style={navSpace}>
-                {posts}
+                <div className="d-inline align-middle">
+                    <h3 className="float-left mb-3">Posts</h3>
+                    <a className="btn btn-success font-weight-bold float-right" href="/admin/posts/create" role="button">Create New Post</a>
+                </div>
+                <table className="table" >
+                    <thead>
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Authors</th>
+                            <th scope="col">Topics</th>
+                            <th scope="col">Published</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {posts}
+                    </tbody>
+                </table>
             </div>
         )
     }
@@ -47,5 +63,3 @@ class Posts extends Component {
 const navSpace = {
     marginTop: "76px" 
 }
-
-export default Posts
