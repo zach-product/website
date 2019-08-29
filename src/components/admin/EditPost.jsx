@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 
-export default class CreatePost extends Component {
+export default class EditPost extends Component {
     constructor(props) {
         super(props)
 
@@ -21,10 +22,28 @@ export default class CreatePost extends Component {
     }
 
     componentDidMount() {
-        this.setState({
-            users: ['test user'],
-            author: 'test user', 
-        })
+        axios.get('http://localhost:3000/pubs/'+this.props.match.params.id)
+            .then(response => {
+                this.setState({
+                    title: response.data.title,
+                    author: response.data.author,
+                    topics: response.data.topics,
+                    content: response.data.content,
+                    published: new Date(response.data.published)
+                })
+            })
+            .catch(err => {
+                console.log(err)
+            })
+
+        axios.get('http://localhost:3000/users/')
+            .then(response => {
+                if(response.data.length > 0) {
+                    this.setState({
+                        users: response.data.map(user => user.firstname + ' ' + user.lastname),
+                    })
+                }
+            })
     }
 
     onChangeInput(e) {
@@ -54,6 +73,9 @@ export default class CreatePost extends Component {
 
         console.log(post)
 
+        axios.post('http://localhost:3000/pubs/update/'+this.props.match.params.id, post)
+            .then(res => console.log(res.data))
+
         window.location = '/admin/posts'
     }
 
@@ -61,7 +83,7 @@ export default class CreatePost extends Component {
         const { title, author, topics, content, published } = this.state
         return (
             <div className="container" style={navSpace}>
-                <h3 className='mb-3'>Create New Post</h3>
+                <h3 className='mb-3'>Edit Post</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Title:</label>
@@ -126,7 +148,7 @@ export default class CreatePost extends Component {
                         <input
                             type="submit"
                             className="btn btn-primary"
-                            value="Create New Post"
+                            value="Save Changes"
                         />
                     </div>
                 </form>

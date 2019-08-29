@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import NavBar from '../components/NavBar';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
-import { Home, Portfolio, Blog } from './';
+import { NavBar, Home, Portfolio, OneProject, Blog, OnePost } from '../components';
 
 export default class Website extends Component {
     render() {
@@ -10,9 +9,12 @@ export default class Website extends Component {
             <Router>
                 <NavBar />
                 <br />
+                <Route path="/portfolio" exact component={Portfolio} />
+                <Route path="/portfolio/:id" component={OneProject} />
+                <Route path="/blog" exact component={Blog} />
+                <Route path="/blog/:id" component={OnePost} />
                 <Route path="/" exact component={Home} />
-                <Route path="/portfolio" component={Portfolio} />
-                <Route path="/blog" component={Blog} />
+                <Redirect from="*" to="/" />
             </Router>
         )
     }

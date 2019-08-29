@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import logo from '../logo.svg'
 
-export default class NavBarAdmin extends Component {
+export default class NavBar extends Component {
     constructor(props) {
         super(props)
         this.toggleNavBar = this.toggleNavBar.bind(this)
@@ -29,10 +29,10 @@ export default class NavBarAdmin extends Component {
             <header className="fixed-top page-header">
                 <nav style={navStyling} className='navbar navbar-expand-lg navbar-dark'>
                     <div className="container">
-                        <a href="/admin/posts" className="navbar-brand brand-font align-middle">
+                        <Link to="/" className="navbar-brand brand-font align-middle">
                             <img src={logo} width="50" length="50" alt="Zachary Pritchard" />
-                            <span className="ml-3">Zach Pritchard - Admin</span>
-                        </a>
+                            <span className="ml-3">Zach Pritchard</span>
+                        </Link>
                         <button 
                             onClick={this.toggleNavBar} 
                             className={`${classTwo}`} 
@@ -48,14 +48,14 @@ export default class NavBarAdmin extends Component {
                         <div className={`${classOne}`} id="navbarNav">
                             <ul className="navbar-nav">
                                 <li className="nav-item mx-2">
-                                    <Link className="nav-link" to="/admin/posts">Posts</Link>
+                                    <Link className="nav-link" to="/portfolio">Portfolio</Link>
                                 </li>
                                 <li className="nav-item mx-2">
-                                    <Link className="nav-link" to="/admin/projects">Projects</Link>
+                                    <Link className="nav-link" to="/blog">Blog</Link>
                                 </li>
                             </ul>
                             <div className="align-middle">
-                                <a className="btn btn-outline-light font-weight-bold float-right my-1" href="/" role="button">Back to Website</a>
+                                <a class="btn btn-outline-light font-weight-bold float-right my-1" href="mailto:hello@prodforward.com" role="button">Subscribe</a>
                             </div>
                         </div>
                     </div>
@@ -66,5 +66,5 @@ export default class NavBarAdmin extends Component {
 }
 
 const navStyling = {
-    background: '#b73634'
+    background: '#1e2958'
 }

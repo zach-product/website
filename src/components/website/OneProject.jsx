@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class PostsList extends Component {
+export default class OneProject extends Component {
     render() {
         return (
             <div>
@@ -9,5 +9,3 @@ class PostsList extends Component {
         )
     }
 }
-
-export default PostsList

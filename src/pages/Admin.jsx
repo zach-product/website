@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import NavBarAdmin from '../components/NavBarAdmin'
-import { Posts } from '../components';
-import { CreatePost, CreateUser } from '.';
+import { NavBarAdmin, Posts, CreatePost, EditPost, Projects, CreateProject, EditProject, CreateUser } from '../components';
+
+
 
 
 export class Admin extends Component {
@@ -14,9 +14,12 @@ export class Admin extends Component {
                 <br/>
                 <Switch>
                     <Route path="/admin/posts" exact component={Posts} />
-                    <Route path="/admin/posts/create" exact component={CreatePost} />
-                    <Route path="/admin/users/create" exact component={CreateUser} />
-                {/* Add Routes below to admin pages */}
+                    <Route path="/admin/posts/create" component={CreatePost} />
+                    <Route path="/admin/posts/edit/:id" component={EditPost} />
+                    <Route path="/admin/projects" exact component={Projects} />
+                    <Route path="/admin/projects/create" component={CreateProject} />
+                    <Route path="/admin/projects/edit/:id" component={EditProject} />
+                    <Route path="/admin/users/create" component={CreateUser} />
                 </Switch>
             </Router>
         )
