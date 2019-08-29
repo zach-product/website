@@ -8,6 +8,7 @@ export default class CreatePost extends Component {
 
         this.onChangeInput = this.onChangeInput.bind(this)
         this.onChangePublished = this.onChangePublished.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
 
         this.state = {
             title: '',
@@ -116,7 +117,7 @@ export default class CreatePost extends Component {
                         <label>Published:</label>
                         <div>
                             <DatePicker
-                                value={published}
+                                selected={published}
                                 onChange={this.onChangePublished} 
                             />
                         </div>
