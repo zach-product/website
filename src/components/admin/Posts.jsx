@@ -7,10 +7,10 @@ const Post = props => (
     <tr>
         <td className="align-middle">{props.post.title}</td>
         <td className="align-middle">{props.post.author}</td>
-        <td className="align-middle">{props.post.topics.join(', ')}</td>
+        <td className="align-middle font-weight-bold">{props.post.topics.join(", ")}</td>
         <td className="align-middle">{moment(props.post.published).format("MMMM D, YYYY")}</td>
         <td className="align-middle">
-            <Link className="btn btn-secondary" to={"/admin/posts/edit/"+props.post._id}>EDIT</Link><a className="btn btn-danger ml-2" href="#" onClick={() => { props.deletePost(props.post._id)}}>DELETE</a>
+            <Link className="btn btn-secondary" to={"/admin/posts/edit/"+props.post._id}>EDIT</Link><Link to="/admin/posts" className="btn btn-danger ml-2" onClick={() => { props.deletePost(props.post._id)}}>DELETE</Link>
         </td>
     </tr>
 )

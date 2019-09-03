@@ -1,8 +1,10 @@
 // website
 import NavBar from './website/NavBar'
 import Home from './website/Home'
+import About from './website/About'
 import Portfolio from './website/Portfolio'
-import OneProject from './website/OneProject'
+import ProjectAlchemist from './website/ProjectAlchemist'
+import ProjectSignOnSite from './website/ProjectSignOnSite'
 import Blog from './website/Blog'
 import OnePost from './website/OnePost'
 
@@ -16,4 +18,4 @@ import CreateProject from './admin/CreateProject'
 import EditProject from './admin/EditProject'
 import CreateUser from './admin/CreateUser'
 
-export { NavBar, Home, Portfolio, OneProject, Blog, OnePost, NavBarAdmin, Posts, CreatePost, EditPost, Projects, CreateProject, EditProject, CreateUser }
+export { NavBar, Home, About, Portfolio, ProjectAlchemist, ProjectSignOnSite, Blog, OnePost, NavBarAdmin, Posts, CreatePost, EditPost, Projects, CreateProject, EditProject, CreateUser }

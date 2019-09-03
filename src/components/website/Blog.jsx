@@ -2,16 +2,27 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import moment from 'moment'
+import TextTruncate from 'react-text-truncate'
+import { NavBar } from '..';
 
 const Blog = props => (
     <React.Fragment>
-        <Link to='/'><h1>{props.post.title}</h1></Link>
-        <p>By: {props.post.author}</p>
-        <p>{props.post.topics.join(', ')}</p>
-        <p>{props.post.content}</p>
-        <i>{moment(props.post.published).format("MMMM D, YYYY")}</i>
+        <Link to={"/blog/"+props.post._id}><h2 className="my-4">{props.post.title}</h2></Link>
+        {/* <p className="font-italic">By: {props.post.author}</p> */}
+        {props.post.topics.map(item => {
+            return <p className='btn btn-secondary btn-sm disabled mr-2'>{item}</p>
+        })}
+        <TextTruncate 
+            style={fontStyling}
+            line={2}
+            element="p"
+            truncateText="..."
+            text={props.post.content}
+            textTruncateChild={<Link to={"/blog/"+props.post._id}>Read on</Link>}
+        />
+        <i style={dateStyling}>{moment(props.post.published).format("MMMM D, YYYY")}</i>
         <hr />
-        </React.Fragment>
+    </React.Fragment>
 )
 
 export default class Posts extends Component {
@@ -41,15 +52,28 @@ export default class Posts extends Component {
 
     render() { 
         return (
-            <div className="container" style={navSpace}>
-                <div className="col-12 col-lg-8 offset-lg-2">
-                    { this.blogList() }
+            <React.Fragment>
+                <NavBar />
+                <div className="container" style={stickyHeader}>
+                    <div className="col-12 col-lg-10 offset-lg-1">
+                        { this.blogList() }
+                    </div>
                 </div>
-            </div>
+            </React.Fragment>
         )
     }
 }
 
-const navSpace = {
-    marginTop: "76px" 
+const stickyHeader = {
+    marginTop: "calc(80px + 3%)"
+}
+
+const fontStyling = {
+    fontSize: "18px",
+    fontWeight: "300"
+}
+
+const dateStyling = {
+    fontSize: "16px",
+    fontWeight: "350"
 }

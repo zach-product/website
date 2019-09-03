@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import logo from '../logo.svg'
+import logo from '../../assets/logo.svg'
 
 export default class NavBarAdmin extends Component {
     constructor(props) {
@@ -55,8 +55,7 @@ export default class NavBarAdmin extends Component {
                                 </li>
                             </ul>
                             <div className="align-middle float-right my-2">
-                                <Link className="btn btn-outline-warning font-weight-bold" to="/admin/users/create" role="button">Create User</Link>
-                                <a className="btn btn-outline-light font-weight-bold ml-3" href="/" role="button">Website</a>
+                                <Link className="btn btn-outline-light font-weight-bold" to="/admin/users/create" role="button">Create User</Link>
                             </div>
                         </div>
                     </div>

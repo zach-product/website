@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 
 import { NavBarAdmin, Posts, CreatePost, EditPost, Projects, CreateProject, EditProject, CreateUser } from '../components';
-
-
-
 
 export class Admin extends Component {
     render() {
@@ -20,6 +17,7 @@ export class Admin extends Component {
                     <Route path="/admin/projects/create" component={CreateProject} />
                     <Route path="/admin/projects/edit/:id" component={EditProject} />
                     <Route path="/admin/users/create" component={CreateUser} />
+                    <Redirect from="/admin" to="/admin/posts" />
                 </Switch>
             </Router>
         )

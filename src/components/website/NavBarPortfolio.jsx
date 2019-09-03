@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-import logo from '../../assets/logo.svg'
+import logo from '../logo.svg'
 
-export default class NavBarAbout extends Component {
+export default class NavBarPortfolio extends Component {
     constructor(props) {
         super(props)
 
@@ -65,9 +65,9 @@ export default class NavBarAbout extends Component {
             <header className="fixed-top page-header">
                 <nav style={navStyling} className='navbar navbar-expand-lg navbar-dark'>
                     <div className="container">
-                        <Link to="/" className="navbar-brand brand-font align-middle mr-3">
+                        <Link to="/" className="navbar-brand brand-font align-middle">
                             <img src={logo} width="50" length="50" alt="Zach Pritchard" />
-                            {/* <span className="mx-3"></span> */}
+                            <span className="mx-3">Zach's Portfolio</span>
                         </Link>
                         <button 
                             onClick={this.toggleNavBar} 
@@ -85,9 +85,6 @@ export default class NavBarAbout extends Component {
                             <ul className="navbar-nav justify-content-inbetween">
                                 <li className="nav-item mx-3">
                                     <Link style={navLinks} className="nav-link" to="/about">About</Link>
-                                </li>
-                                <li className="nav-item mx-3">
-                                    <Link style={navLinks} className="nav-link" to="/portfolio">Portfolio</Link>
                                 </li>
                                 <li className="nav-item mx-3">
                                     <Link style={navLinks} className="nav-link" to="/blog">Blog</Link>

@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-import logo from '../../assets/logo.svg'
+import logo from '../logo.svg'
 
-export default class NavBarAbout extends Component {
+export default class NavBarBlog extends Component {
     constructor(props) {
         super(props)
 
@@ -65,9 +65,9 @@ export default class NavBarAbout extends Component {
             <header className="fixed-top page-header">
                 <nav style={navStyling} className='navbar navbar-expand-lg navbar-dark'>
                     <div className="container">
-                        <Link to="/" className="navbar-brand brand-font align-middle mr-3">
+                        <Link to="/" className="navbar-brand brand-font align-middle">
                             <img src={logo} width="50" length="50" alt="Zach Pritchard" />
-                            {/* <span className="mx-3"></span> */}
+                            <span className="mx-3">Zach's Blog</span>
                         </Link>
                         <button 
                             onClick={this.toggleNavBar} 
@@ -89,14 +89,11 @@ export default class NavBarAbout extends Component {
                                 <li className="nav-item mx-3">
                                     <Link style={navLinks} className="nav-link" to="/portfolio">Portfolio</Link>
                                 </li>
-                                <li className="nav-item mx-3">
-                                    <Link style={navLinks} className="nav-link" to="/blog">Blog</Link>
-                                </li>
                             </ul>
                             <div className="align-middle">
                                 <form class="form-inline my-3 my-lg-0" onSubmit={this.onSubmitSubscribe}>
                                     <input name="email" value={email} onChange={this.onChangeInput} className="form-control mr-sm-2" type="email" placeholder="have@greatday.com"></input>
-                                    <button onSubmit={this.onSubmit} onMouseEnter={this.toggleHoverSub} onMouseLeave={this.toggleHoverSub} style={ hoverSub ? subBtnHover : subBtn } className="btn my-2 my-sm-0" type="submit">Get In Touch</button>!
+                                    <button onSubmit={this.onSubmit} onMouseEnter={this.toggleHoverSub} onMouseLeave={this.toggleHoverSub} style={ hoverSub ? subBtnHover : subBtn } className="btn my-2 my-sm-0" type="submit">Subscribe</button>
                                 </form>
                             </div>
                         </div>
