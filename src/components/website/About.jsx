@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavBar } from '..';
+import { NavBar, Footer } from '..';
 import about from '../../assets/about.JPG'
 
 export default class Posts extends Component {
@@ -22,7 +22,7 @@ export default class Posts extends Component {
                 <NavBar />
                 <div className="container" style={stickyHeader}>
                     <div className="row">
-                        <div className="col-12 col-lg-6 p-3" style={imgContainer}>
+                        <div className="col-12 col-lg-6 py-2 py-lg-3 px-3" style={imgContainer}>
                             <img style={aboutImg} className="rounded" src={about} width="100%" alt="Zachary Pritchard" />   
                         </div>
                         <div className="col-12 col-lg-6 p-3">
@@ -32,17 +32,18 @@ export default class Posts extends Component {
                         </div>
                     </div>
                 </div>
+                <Footer />
             </React.Fragment>
         )
     }
 }
 
 const stickyHeader = {
-    marginTop: "calc(80px + 3%)"
+    marginTop: "calc(70px + 3%)"
 }
 
 const aboutP = {
-    marginBottom: "2.5rem",
+    marginBottom: "2rem",
     fontSize: "20px",
     fontWeight: "300"
 }

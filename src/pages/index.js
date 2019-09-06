@@ -1,4 +1,3 @@
-import Website from './Website'
-import Admin from './Admin'
+import WebsiteStatic from './WebsiteStatic'
 
-export { Admin, Website }
+export { WebsiteStatic }

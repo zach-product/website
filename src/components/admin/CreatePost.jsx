@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
-import { Editor, EditorState, RichUtils } from 'draft-js'
+import ContentEditor from './ContentEditor';
 
 export default class CreatePost extends Component {
     constructor(props) {
@@ -11,7 +11,6 @@ export default class CreatePost extends Component {
         this.onChangeInput = this.onChangeInput.bind(this)
         this.onChangePublished = this.onChangePublished.bind(this)
         this.onChangeContent = this.onChangeContent.bind(this)
-        this.handleKeyCommand = this.handleKeyCommand.bind(this)
         this.trimInput = this.trimInput.bind(this)
         this.cleanInputArray = this.cleanInputArray.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
@@ -20,10 +19,9 @@ export default class CreatePost extends Component {
             title: '',
             author: '',
             topics: '',
-            content: '',
+            content: {},
             published: new Date(),
             users: [],
-            editorState: EditorState.createEmpty(),
         }
     }
 
@@ -53,23 +51,6 @@ export default class CreatePost extends Component {
         })
     }
 
-    onChangeContent(editorState) {
-        this.setState({
-            editorState
-        })
-    }
-
-    handleKeyCommand(command) {
-        const newState = RichUtils.handleKeyCommand(this.state.editorState, command)
-
-        if(newState) {
-            this.onChangeContent(newState)
-            return 'handled'
-        }
-
-        return 'not-handled'
-    }
-
     cleanInputArray(e) {
         const name = e.target.name
         const value = e.target.value
@@ -84,6 +65,12 @@ export default class CreatePost extends Component {
         const trimmedStr= value.trim()
         console.log(trimmedStr)
         this.setState({ [name]: trimmedStr })
+    }
+
+    onChangeContent(newContent) {
+        this.setState({
+            content: newContent
+        })
     }
 
     onSubmit(e) {
@@ -103,11 +90,11 @@ export default class CreatePost extends Component {
             .then(res => console.log(res.data))
             .catch(err => console.log(err))
 
-        window.location = '/admin/posts'
+        // window.location = '/admin/posts'
     }
 
     render() {
-        const { title, author, topics, content, published } = this.state
+        const { title, author, topics, published } = this.state
         return (
             <div className="container" style={navSpace}>
                 <div className="col-12 col-lg-10 offset-lg-1">
@@ -154,25 +141,17 @@ export default class CreatePost extends Component {
                                 onBlur={this.cleanInputArray}
                             />
                         </div>
-                        <div className="form-group">
+                        {/* <div className="form-group">
                             <label>Content:</label>
-                            <div className="form-control">
-                                <Editor 
-                                    onChange={this.onChangeContent}
-                                    editorState={this.state.editorState}
-                                    handleKeyCommand={this.handleKeyCommand}
-                                    className="pb-1"
-                                />
-                            </div>
-                            {/* <textarea
+                            <textarea
                                 type="text"
                                 rows="10"
                                 className="form-control"
                                 name="content"
                                 value={content}
                                 onChange={this.onChangeInput}
-                            /> */}
-                        </div>
+                            />
+                        </div> */}
                         <div className="form-group">
                             <label>Published:</label>
                             <div>
@@ -181,6 +160,12 @@ export default class CreatePost extends Component {
                                     onChange={this.onChangePublished} 
                                 />
                             </div>
+                        </div>
+                        <div className="form-group">
+                            <label>Content: </label>
+                            <ContentEditor
+                                onChangeContent={this.onChangeContent}
+                            />
                         </div>
                         <div className="form-group">
                             <input
@@ -197,5 +182,5 @@ export default class CreatePost extends Component {
 }
 
 const navSpace = {
-    marginTop: "76px" 
+    marginTop: "calc(70px + 3%)" 
 }

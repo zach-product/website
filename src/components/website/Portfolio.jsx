@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { NavBar } from '..';
+import { NavBar, Footer } from '..';
 import alchemistLogo from '../../assets/alchemist-logo_only.png'
 import SignOnSiteLogo from '../../assets/signonsite-logo.png'
 
@@ -35,7 +35,7 @@ export default class Portfolio extends Component {
             <React.Fragment>
                 <NavBar />
                 <div className="container" style={stickyHeader}>
-                    <div className="row pt-3 align-items-center">
+                    <div className="row py-2 py-lg-3 align-items-center">
                         <div className="col-12 col-lg-6 mb-3">
                             <Link className="text-decoration-none" to="/portfolio/alchemist">
                                 {hoverAlchemist &&
@@ -45,8 +45,9 @@ export default class Portfolio extends Component {
                                 }
                                 <div style={hoverAlchemist ? cardContainerHover : cardContainer} onMouseEnter={this.toggleHoverAlchemist} onMouseLeave={this.toggleHoverAlchemist} className="card align-items-center py-5">
                                     <img style={portfolioImg} className="card-img-top" src={alchemistLogo} alt="Alchemist Accelerator Logo" />
-                                    <div className="card-body">
+                                    <div className="card-body text-center">
                                         <h3 className="card-title" style={cardText}>Alchemist Accelerator</h3>
+                                        <p className="mt-3" style={cardP}>San Francisco, CA</p>
                                     </div>
                                 </div>
                             </Link>
@@ -60,21 +61,23 @@ export default class Portfolio extends Component {
                                 }
                                 <div style={hoverSOS ? cardContainerHover : cardContainer} onMouseEnter={this.toggleHoverSOS} onMouseLeave={this.toggleHoverSOS} className="card align-items-center py-5">
                                     <img style={portfolioImg} className="card-img-top" src={SignOnSiteLogo} alt="SignOnSite Logo" />
-                                    <div className="card-body">
+                                    <div className="card-body text-center">
                                         <h3 className="card-title" style={cardText}>SignOnSite</h3>
+                                        <p className="mt-3" style={cardP}>Canberra, Australia</p>
                                     </div>
                                 </div>
                             </Link>
                         </div>
                     </div>
                 </div>
+                <Footer />
             </React.Fragment>
         )
     }
 }
 
 const stickyHeader = {
-    marginTop: "calc(80px + 3%)"
+    marginTop: "calc(70px + 3%)"
 }
 
 const portfolioImg = {
@@ -107,6 +110,13 @@ const middle =  {
  
 const cardText = {
     color: "#000"
+}
+
+const cardP = {
+    color: "#000",
+    fontSize: "18px",
+    fontWeight: "300",
+    fontStyle: "italic"
 }
 
 const overlayFont = {

@@ -20,7 +20,7 @@ export default class ProjectAlchemist extends Component {
                                         <h1 className="mb-3">Alchemist Accelerator</h1>
                                     </a>
                                     <p className="mb-3" style={projectDesc}>Alchemist Accelerator is one of the top accelerator programs in Silicon Valley exclusively working with enterprise-focused startups.</p>
-                                    <p className="mb-3" style={projectType}>Full Time - 3 years</p>
+                                    <p className="mb-3" style={projectType}>San Francisco / Remote - Full Time - 3 years</p>
                                 </div>
                             </div>
                         </div>
@@ -32,7 +32,12 @@ export default class ProjectAlchemist extends Component {
                         <div className="col-12 mb-4">
                             <h3>Work</h3>
                             <hr />
-                            <p style={mainText}>I implemented over many iterations a complete agile product process from performing research to measuring results. In the end, we were releasing on a feature or bug ready basis translating to once or twice a week. Ultimately, we delivered, maintained, and iterated two products: one for program founders to get access to the Alchemist network and resources, and another for the Alchemist ops team to manage the Alchemist founders and larger network of investors, corporate customers and mentors. When I left, Alchemist's product team consisted of 3 engineers, 2 designers, 1 product manager (me), and 1 associate product manager.</p>
+                            <p style={mainText}>I implemented over many iterations a complete agile product process from performing research to measuring results. In the end, we were releasing on a feature or bug ready basis translating to once or twice a week. Ultimately, we delivered, maintained, and iterated two products:</p>
+                            <ul>
+                                <li style={mainText}>One for the program's founders to get access to the Alchemist network and resources</li>
+                                <li style={mainText}>One for the Alchemist ops team to manage the program's founders and larger network of investors, corporate customers and mentors. </li>
+                            </ul>
+                            <p style={mainText}>When I left, Alchemist's product team consisted of 4 engineers, 2 designers, 1 product manager (me), and 1 associate product manager.</p>
                         </div>
                     </div>
                 </div>
@@ -42,7 +47,7 @@ export default class ProjectAlchemist extends Component {
 }
 
 const stickyHeader = {
-    marginTop: "calc(80px + 3%)"
+    marginTop: "calc(70px + 3%)"
 }
 
 const projectHeader = {

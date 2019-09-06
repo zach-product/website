@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import axios from 'axios'
 
 import logo from '../../assets/logo.svg'
@@ -84,17 +84,17 @@ export default class NavBarAbout extends Component {
                         <div className={`${classOne}`} id="navbarNav">
                             <ul className="navbar-nav justify-content-inbetween">
                                 <li className="nav-item mx-3">
-                                    <Link style={navLinks} className="nav-link" to="/about">About</Link>
+                                    <NavLink style={navLinks} className="nav-link" to="/about">About</NavLink>
                                 </li>
                                 <li className="nav-item mx-3">
-                                    <Link style={navLinks} className="nav-link" to="/portfolio">Portfolio</Link>
+                                    <NavLink style={navLinks} className="nav-link" to="/portfolio">Portfolio</NavLink>
                                 </li>
                                 <li className="nav-item mx-3">
-                                    <Link style={navLinks} className="nav-link" to="/blog">Blog</Link>
+                                    <NavLink style={navLinks} className="nav-link" to="/blog">Blog</NavLink>
                                 </li>
                             </ul>
                             <div className="align-middle">
-                                <form class="form-inline my-3 my-lg-0" onSubmit={this.onSubmitSubscribe}>
+                                <form className="form-inline mx-4 mx-lg-0 my-3 my-lg-0" onSubmit={this.onSubmitSubscribe}>
                                     <input name="email" value={email} onChange={this.onChangeInput} className="form-control mr-sm-2" type="email" placeholder="have@greatday.com"></input>
                                     <button onSubmit={this.onSubmit} onMouseEnter={this.toggleHoverSub} onMouseLeave={this.toggleHoverSub} style={ hoverSub ? subBtnHover : subBtn } className="btn my-2 my-sm-0" type="submit">Get In Touch</button>!
                                 </form>

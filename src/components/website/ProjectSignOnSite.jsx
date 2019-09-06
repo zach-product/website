@@ -20,7 +20,7 @@ export default class ProjectAlchemist extends Component {
                                         <h1 className="mb-3">SignOnSite</h1>
                                     </a>
                                     <p className="mb-3" style={projectDesc}>SignOnSite is a workplace health and safety platform for the construction industry.</p>
-                                    <p className="mb-3" style={projectType}>Contract - 3 months</p>
+                                    <p className="mb-3" style={projectType}>Canberra, Australia - Contract - 3 months</p>
                                 </div>
                             </div>
                         </div>
@@ -42,7 +42,7 @@ export default class ProjectAlchemist extends Component {
 }
 
 const stickyHeader = {
-    marginTop: "calc(80px + 3%)"
+    marginTop: "calc(70px + 3%)"
 }
 
 const projectHeader = {
