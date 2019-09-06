@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import axios from 'axios'
+import './../../App.css'
 
 import logo from '../../assets/logo.svg'
 
@@ -11,11 +12,13 @@ export default class NavBarAbout extends Component {
         this.toggleNavBar = this.toggleNavBar.bind(this)
         this.toggleHoverSub = this.toggleHoverSub.bind(this)
         this.onChangeInput = this.onChangeInput.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
 
         this.state = {
             email: '',
             collapsed: true,
-            hoverSub: false
+            hoverSub: false,
+            emailSent: false,
         }
     }
 
@@ -42,24 +45,30 @@ export default class NavBarAbout extends Component {
     onSubmit(e) {
         e.preventDefault()
 
+        this.setState({ emailSent: !this.state.emailSent })
+
         const user = {
             email: this.state.email
         }
 
         console.log(user)
 
-        axios.post('http://localhost:3000/user/add', user)
+        axios.post('http://localhost:3000/users/add', user)
             .then(res => console.log(res.data))
             .catch(err => console.log(err))
 
-        window.location = '/admin/posts'
+        this.handleClearForm()
+    }
+
+    handleClearForm(e) {
+        this.setState({ email: ''})
     }
 
     render() {
         const collapsed  = this.state.collapsed
         const classOne = collapsed ? 'collapse navbar-collapse justify-content-lg-between' : 'collapse navbar-collapse justify-content-lg-between show'
         const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right'
-        const { hoverSub, email } = this.state
+        const { hoverSub, email, emailSent } = this.state
 
         return (
             <header className="fixed-top page-header">
@@ -94,10 +103,10 @@ export default class NavBarAbout extends Component {
                                 </li>
                             </ul>
                             <div className="align-middle">
-                                <form className="form-inline mx-4 mx-lg-0 my-3 my-lg-0" onSubmit={this.onSubmitSubscribe}>
+                                <form className="form-inline mx-4 mx-lg-0 my-3 my-lg-0" onSubmit={this.onSubmit}>
                                     <input name="email" value={email} onChange={this.onChangeInput} className="form-control mr-sm-2" type="email" placeholder="have@greatday.com"></input>
-                                    <button onSubmit={this.onSubmit} onMouseEnter={this.toggleHoverSub} onMouseLeave={this.toggleHoverSub} style={ hoverSub ? subBtnHover : subBtn } className="btn my-2 my-sm-0" type="submit">Get In Touch</button>!
-                                </form>
+                                    <button onMouseEnter={this.toggleHoverSub} onMouseLeave={this.toggleHoverSub} style={ hoverSub ? subBtnHover : subBtn } className="btn my-2 my-sm-0" type="submit">{ emailSent ? "Email Sent!" : "Get In Touch"}</button>!
+                            `   </form>
                             </div>
                         </div>
                     </div>

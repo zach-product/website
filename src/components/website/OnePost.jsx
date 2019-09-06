@@ -3,7 +3,6 @@ import axios from 'axios'
 import moment from 'moment'
 import { NavBar } from '..';
 import { Editor, EditorState, convertFromRaw } from 'draft-js'
-import { stateToHTML } from 'draft-js-export-html'
 
 export default class OnePost extends Component {
     constructor(props) {

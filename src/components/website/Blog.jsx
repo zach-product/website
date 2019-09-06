@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom'
 import moment from 'moment'
 import TextTruncate from 'react-text-truncate'
 import { NavBar } from '..';
+import './../../App.css'
 
 const Blog = props => (
     <React.Fragment>
         <Link to={"/blog/"+props.post.endURL}><h2 className="my-4">{props.post.title}</h2></Link>
-        {props.post.topics.map(item => {
-            return <p className='btn btn-secondary btn-sm disabled mr-2'>{item}</p>
+        {props.post.topics.map((item, index) => {
+            return <p key={index} className='btn btn-secondary btn-sm disabled mr-2'>{item}</p>
         })}
         <TextTruncate 
             style={fontStyling}
             line={2}
-            element="p"
             truncateText="..."
             text={props.post.content.intro}
             textTruncateChild={<Link to={"/blog/"+props.post.endURL}>Read on</Link>}
@@ -91,7 +91,8 @@ const stickyHeader = {
 
 const fontStyling = {
     fontSize: "18px",
-    fontWeight: "300"
+    fontWeight: "300",
+    marginBottom: ".75rem"
 }
 
 const dateStyling = {

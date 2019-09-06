@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import moment from 'moment'
 import { NavBar } from '..';
+import './../../App.css'
 
 export default class OnePost extends Component {
     constructor(props) {
