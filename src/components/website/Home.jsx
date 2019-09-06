@@ -76,7 +76,8 @@ const homeContainer = {
     alignItems: "center",
     justifyContent: "center",
     height: "100%",
-    width: "100%"
+    width: "100%",
+    padding: "3%"
 }
 
 const mainContent = {
