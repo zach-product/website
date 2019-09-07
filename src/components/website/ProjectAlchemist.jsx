@@ -34,10 +34,10 @@ export default class ProjectAlchemist extends Component {
                             <hr />
                             <p style={mainText}>I implemented over many iterations a complete agile product process from performing research to measuring results. In the end, we were releasing on a feature or bug ready basis translating to once or twice a week. Ultimately, we delivered, maintained, and iterated two products:</p>
                             <ul>
-                                <li style={mainText}>One for the program's founders to get access to the Alchemist network and resources</li>
-                                <li style={mainText}>One for the Alchemist ops team to manage the program's founders and larger network of investors, corporate customers and mentors. </li>
+                                <li style={mainText}>Vault for Founders, providing program founders access to the Alchemist network and resources, and</li>
+                                <li style={mainText}>Vault for Ops, providing tools for the Alchemist ops team to manage the Alchemist founders and larger network of investors, corporate customers and mentors.</li>
                             </ul>
-                            <p style={mainText}>When I left, Alchemist's product team consisted of 4 engineers, 2 designers, 1 product manager (me), and 1 associate product manager.</p>
+                            <p style={mainText}>I grew Alchemist's product team to 4 engineers, 2 designers, 1 product manager (me), and 1 associate product manager.</p>
                         </div>
                     </div>
                 </div>
