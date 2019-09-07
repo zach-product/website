@@ -43,17 +43,22 @@ export default class Home extends Component {
     render() {
         const { hoverAbout, hoverPortfolio, hoverBlog } = this.state
         return (
-            <div style={bgHome}>
-                <div style={homeContainer}>
-                    <div  className="col-12" style={mainContent}>
-                        <img className="mb-3 mb-lg-5" style={logoHome} src={logo} alt="logo"/>                            
-                        <h1 adjustsFontSizeToFit minimumFontScale={.5} className="mb-3 mb-lg-4 text-white">Hi. I'm Zach. Nice to meet you!</h1>
-                        <p adjustsFontSizeToFit minimumFontScale={.5} className="mb-3 mb-lg-4 text-white" style={roleStyles}>Product Manager &nbsp; • &nbsp; UX/UI Designer &nbsp; • &nbsp; Front End Developer</p>
-                        <div className="col-12">
-                            <Link to="/about"><button onMouseEnter={this.toggleHoverAbout} onMouseLeave={this.toggleHoverAbout} style={ hoverAbout ? btnHomeHover : btnHome } className='col-12 col-lg-2 btn btn-lg m-lg-3 mb-3'>About</button></Link>
-                            <Link to="/portfolio"><button onMouseEnter={this.toggleHoverPortfolio} onMouseLeave={this.toggleHoverPortfolio} style={ hoverPortfolio ? btnHomeHover : btnHome } className='col-12 col-lg-2 btn btn-lg m-lg-3 mb-3'>Portfolio</button></Link>
-                            <Link to="/blog"><button onMouseEnter={this.toggleHoverBlog} onMouseLeave={this.toggleHoverBlog} style={ hoverBlog ? btnHomeHover : btnHome } className='col-12 col-lg-2 btn btn-lg m-lg-3 mb-3'>Blog</button></Link>
+            <div style={bgMain}>
+                <div style={bgHome}>
+                    <div style={homeContainer}>
+                        <div  className="container pb-2 mt-5 mt-lg-0" style={mainContent}>
+                            <div className="pb-4 pb-lg-5 pt-lg-0" style={logoCOntainer}>
+                                <img style={logoHome} src={logo} alt="logo"/>                            
+                            </div>
+                            <h1 adjustsFontSizeToFit minimumFontScale={.5} className="mb-4 mb-lg-4 text-white">Hi. I'm Zach. Nice to meet you!</h1>
+                            <p adjustsFontSizeToFit minimumFontScale={.5} className="mb-4 mb-lg-4 text-white" style={roleStyles}>Product Manager &nbsp; • &nbsp; UX/UI Designer &nbsp; • &nbsp; Front End Developer</p>
+                            <div className="w-100" style={mainContent}>
+                                <Link to="/about"><button onMouseEnter={this.toggleHoverAbout} onMouseLeave={this.toggleHoverAbout} style={ hoverAbout ? btnHomeHover : btnHome } className='col-12 col-lg-2 btn btn-lg m-lg-3 mb-3'>About</button></Link>
+                                <Link to="/portfolio"><button onMouseEnter={this.toggleHoverPortfolio} onMouseLeave={this.toggleHoverPortfolio} style={ hoverPortfolio ? btnHomeHover : btnHome } className='col-12 col-lg-2 btn btn-lg m-lg-3 mb-3'>Portfolio</button></Link>
+                                <Link to="/blog"><button onMouseEnter={this.toggleHoverBlog} onMouseLeave={this.toggleHoverBlog} style={ hoverBlog ? btnHomeHover : btnHome } className='col-12 col-lg-2 btn btn-lg m-lg-3 mb-3'>Blog</button></Link>
+                            </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -62,26 +67,37 @@ export default class Home extends Component {
 }
 
 
+const bgMain = {
+    background: "#1e2958",
+    height: "100%",
+    width: "100%",
+}
+
 
 const bgHome = {
     background: "#1e2958",
     height: "100vh",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "cover"
+    backgroundSize: "cover",
 }
 
 const homeContainer = {
+    background: "#1e2958",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     height: "100%",
     width: "100%",
-    padding: "3%"
 }
 
 const mainContent = {
-    textAlign: "center"
+    background: "#1e2958",
+    textAlign: "center",
+}
+
+const logoCOntainer = {
+    paddingTop: "5rem"
 }
 
 const logoHome = {
