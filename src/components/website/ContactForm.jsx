@@ -8,18 +8,26 @@ export default class ContactForm extends Component {
         this.onChangeInput = this.onChangeInput.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
         this.toggleHoverBtn = this.toggleHoverBtn.bind(this)
+        this.toggleHoverCancel = this.toggleHoverCancel.bind(this)
 
         this.state = {
             email: '',
             message: '',
             hoverBtn: false,
             emailSent: false,
+            hoverCancel: false
         }
     }
 
     toggleHoverBtn(e) {
         this.setState({
             hoverBtn: !this.state.hoverBtn
+        })
+    }
+
+    toggleHoverCancel(e) {
+        this.setState({
+            hoverCancel: !this.state.hoverCancel
         })
     }
 
@@ -57,18 +65,21 @@ export default class ContactForm extends Component {
     }
 
     render() {
-        const { email, message, hoverBtn, emailSent } = this.state 
+        const { email, message, hoverBtn, emailSent, hoverCancel } = this.state
         return (
-            <form onSubmit={this.onSubmit} className="col-12 col-lg-4 offset-lg-8 p-3 mt-1 rounded" style={formContainer}>
+            <form onSubmit={this.onSubmit} className="col-12 col-lg-4 offset-lg-8 p-3 mb-5 mt-2 mt-lg-1 rounded" style={formContainer}>
                 <div className="form-group">
-                    <label style={labelStyling} for="email">Email:</label>
-                    <input type="email" name="email" value={email} onChange={this.onChangeInput} className="form-control" id="email" ariaLabel="email" placeholder="have@greatday.com" />                    
+                    <label style={labelStyling} htmlFor="email">Email:</label>
+                    <input type="email" required name="email" value={email} onChange={this.onChangeInput} className="form-control" id="email" aria-label="email" placeholder="have@greatday.com" />                    
                 </div>
                 <div className="form-group">
-                    <label style={labelStyling} for="message">Message:</label>
-                    <textarea rows="3" type="text" name="message" value={message} onChange={this.onChangeInput} className="form-control" id="message" ariaLabel="message" placeholder="Include a message if you'd like (optional)" />                    
+                    <label style={labelStyling} htmlFor="message">Message:</label>
+                    <textarea rows="3" type="text" name="message" value={message} onChange={this.onChangeInput} className="form-control" id="message" aria-label="message" placeholder="Include a message if you'd like (optional)" />                    
                 </div>
-                <button onMouseEnter={this.toggleHoverBtn} onMouseLeave={this.toggleHoverBtn} style={ hoverBtn ? contactBtnHover : contactBtn } className="btn my-2 my-sm-0" type="submit">{ emailSent ? "Message Sent!" : "Send Message"}</button>
+                <div className="align-items-center">
+                    <button onMouseEnter={this.toggleHoverBtn} onMouseLeave={this.toggleHoverBtn} style={ hoverBtn ? contactBtnHover : contactBtn } className="btn my-2 my-sm-0" type="submit">{ emailSent ? "Message Sent!" : "Send Message"}</button>
+                    <a className="ml-3" onMouseEnter={this.toggleHoverCancel} onMouseLeave={this.toggleHoverCancel} onClick={this.props.onClickCancel} style={ hoverCancel ? cancelLinkHover : cancelLink }>Cancel</a>
+                </div>
             </form>
         )
     }
@@ -96,4 +107,15 @@ const contactBtnHover = {
     background: "#8fcc9f",
     color: "#1e2958",
     fontWeight: "500",
+}
+
+const cancelLink = {
+    color: "white",
+
+}
+
+const cancelLinkHover = {
+    color: "white",
+    textDecoration: "underline",
+    cursor: "pointer"
 }

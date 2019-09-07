@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import axios from 'axios'
 import './../../App.css'
 import ContactForm from './ContactForm' 
 
@@ -13,6 +12,7 @@ export default class NavBarAbout extends Component {
         this.toggleNavBar = this.toggleNavBar.bind(this)
         this.toggleHoverBtn = this.toggleHoverBtn.bind(this)
         this.onClickContactBtn = this.onClickContactBtn.bind(this)
+        this.onClickCancel = this.onClickCancel.bind(this)
         // this.onChangeInput = this.onChangeInput.bind(this)
         // this.onSubmit = this.onSubmit.bind(this)
 
@@ -25,8 +25,12 @@ export default class NavBarAbout extends Component {
 
     onClickContactBtn(e) {
         e.preventDefault()
+        this.setState({ contactForm: !this.state.contactForm, collapsed: !this.state.collapsed })
+    }
 
-        this.setState({ contactForm: !this.state.contactForm })
+    onClickCancel(e) {
+        e.preventDefault()
+        this.setState({ contactForm: !this.state.contactForm})
     }
 
     toggleNavBar(e) {
@@ -111,7 +115,7 @@ export default class NavBarAbout extends Component {
                     </div>
                 </nav>
                 <div className="container" style={ contactForm ? null : contactFormClosed }>
-                    <ContactForm />
+                    <ContactForm onClickCancel={this.onClickCancel} />
                 </div>
             </header>
         )

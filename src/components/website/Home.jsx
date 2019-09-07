@@ -50,8 +50,14 @@ export default class Home extends Component {
                             <div className="pb-4 pb-lg-5 pt-lg-0" style={logoCOntainer}>
                                 <img style={logoHome} src={logo} alt="logo"/>                            
                             </div>
-                            <h1 adjustsFontSizeToFit minimumFontScale={.5} className="mb-4 mb-lg-4 text-white">Hi. I'm Zach. Nice to meet you!</h1>
-                            <p adjustsFontSizeToFit minimumFontScale={.5} className="mb-4 mb-lg-4 text-white" style={roleStyles}>Product Manager &nbsp; • &nbsp; UX/UI Designer &nbsp; • &nbsp; Front End Developer</p>
+                            <h1 className="mb-4 mb-lg-4 text-white">Hi. I'm Zach. Nice to meet you!</h1>
+                            <div className="mb-4 mb-lg-4 ml-4 ml-lg-0 text-white" style={roleStyles}>
+                                <span className="col-12 col-lg-3 d-flex d-lg-inline my-3 my-lg-0">Product Manager</span> 
+                                    <span className="d-none d-lg-inline">&nbsp; • &nbsp;</span>
+                                <span className="col-12 col-lg-3 d-flex d-lg-inline my-3 my-lg-0">UX/UI Designer</span> 
+                                    <span className="col-12 d-none d-lg-inline">&nbsp; • &nbsp;</span>
+                                <span className="col-12 col-lg-3 d-flex d-lg-inline my-3 my-lg-0">Front End Developer</span>
+                            </div>
                             <div className="w-100" style={mainContent}>
                                 <Link to="/about"><button onMouseEnter={this.toggleHoverAbout} onMouseLeave={this.toggleHoverAbout} style={ hoverAbout ? btnHomeHover : btnHome } className='col-12 col-lg-2 btn btn-lg m-lg-3 mb-3'>About</button></Link>
                                 <Link to="/portfolio"><button onMouseEnter={this.toggleHoverPortfolio} onMouseLeave={this.toggleHoverPortfolio} style={ hoverPortfolio ? btnHomeHover : btnHome } className='col-12 col-lg-2 btn btn-lg m-lg-3 mb-3'>Portfolio</button></Link>
@@ -89,6 +95,7 @@ const homeContainer = {
     justifyContent: "center",
     height: "100%",
     width: "100%",
+    margin: "1rem 0rem"
 }
 
 const mainContent = {
@@ -108,7 +115,8 @@ const logoHome = {
 const roleStyles = {
     fontSize: "28px",
     fontWeight: "200",
-    letterSpacing: "1px"
+    letterSpacing: "1px",
+    textAlign: "center"
 }
 
 const btnHome = {

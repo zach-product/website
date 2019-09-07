@@ -40,6 +40,7 @@ export default class Posts extends Component {
 
 const stickyHeader = {
     marginTop: "calc(70px + 3%)",
+    marginBottom: "50px"
 }
 
 const aboutP = {
