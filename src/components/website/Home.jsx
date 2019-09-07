@@ -46,7 +46,7 @@ export default class Home extends Component {
             <div style={bgMain}>
                 <div style={bgHome}>
                     <div style={homeContainer}>
-                        <div  className="container pb-2 mt-5 mt-lg-0" style={mainContent}>
+                        <div  className="col-12 pb-2 mt-5 mt-lg-0" style={mainContent}>
                             <div className="pb-4 pb-lg-5 pt-lg-0" style={logoCOntainer}>
                                 <img style={logoHome} src={logo} alt="logo"/>                            
                             </div>
