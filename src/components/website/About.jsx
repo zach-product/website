@@ -22,7 +22,7 @@ export default class Posts extends Component {
                 <NavBar />
                 <div className="container" style={stickyHeader}>
                     <div className="row">
-                        <div className="col-12 col-lg-6 py-2 py-lg-3 px-3" style={imgContainer}>
+                        <div className="col-12 col-lg-6 pt-2 pt-lg-1 px-3" style={imgContainer}>
                             <img style={aboutImg} className="rounded" src={about} width="100%" alt="Zachary Pritchard" />   
                         </div>
                         <div className="col-12 col-lg-6 p-3">
@@ -40,7 +40,6 @@ export default class Posts extends Component {
 
 const stickyHeader = {
     marginTop: "calc(70px + 3%)",
-    marginBottom: "calc(50px + 2%"
 }
 
 const aboutP = {

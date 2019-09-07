@@ -35,7 +35,7 @@ export default class Portfolio extends Component {
             <React.Fragment>
                 <NavBar />
                 <div className="container" style={stickyHeader}>
-                    <div className="row py-2 py-lg-3 align-items-center">
+                    <div className="row pt-2 pt-lg-1 align-items-center">
                         <div className="col-12 col-lg-6 mb-3">
                             <Link className="text-decoration-none" to="/portfolio/alchemist">
                                 {hoverAlchemist &&
