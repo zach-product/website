@@ -95,7 +95,6 @@ const homeContainer = {
     justifyContent: "center",
     height: "100%",
     width: "100%",
-    margin: "1rem 0rem"
 }
 
 const mainContent = {
