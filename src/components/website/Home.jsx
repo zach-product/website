@@ -47,7 +47,7 @@ export default class Home extends Component {
                 <div style={bgHome}>
                     <div style={homeContainer}>
                         <div  className="col-12 pb-2 mt-5 mt-lg-0" style={mainContent}>
-                            <div className="pb-4 pb-lg-5 pt-lg-0" style={logoCOntainer}>
+                            <div className="pb-4 pb-lg-5 pt-lg-0" style={logoContainer}>
                                 <img style={logoHome} src={logo} alt="logo"/>                            
                             </div>
                             <h1 className="mb-4 mb-lg-4 text-white">Hi. I'm Zach. Nice to meet you!</h1>
@@ -102,8 +102,8 @@ const mainContent = {
     textAlign: "center",
 }
 
-const logoCOntainer = {
-    paddingTop: "5rem"
+const logoContainer = {
+    paddingTop: "7rem"
 }
 
 const logoHome = {
