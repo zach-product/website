@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import axios from 'axios'
 import './../../App.css'
+import ContactForm from './ContactForm' 
 
 import logo from '../../assets/logo.svg'
 
@@ -10,16 +11,22 @@ export default class NavBarAbout extends Component {
         super(props)
 
         this.toggleNavBar = this.toggleNavBar.bind(this)
-        this.toggleHoverSub = this.toggleHoverSub.bind(this)
-        this.onChangeInput = this.onChangeInput.bind(this)
-        this.onSubmit = this.onSubmit.bind(this)
+        this.toggleHoverBtn = this.toggleHoverBtn.bind(this)
+        this.onClickContactBtn = this.onClickContactBtn.bind(this)
+        // this.onChangeInput = this.onChangeInput.bind(this)
+        // this.onSubmit = this.onSubmit.bind(this)
 
         this.state = {
-            email: '',
             collapsed: true,
-            hoverSub: false,
-            emailSent: false,
+            hoverBtn: false,
+            contactForm: false,
         }
+    }
+
+    onClickContactBtn(e) {
+        e.preventDefault()
+
+        this.setState({ contactForm: !this.state.contactForm })
     }
 
     toggleNavBar(e) {
@@ -28,47 +35,40 @@ export default class NavBarAbout extends Component {
         })
     }
 
-    toggleHoverSub(e) {
+    toggleHoverBtn(e) {
         this.setState({
-            hoverSub: !this.state.hoverSub
+            hoverBtn: !this.state.hoverBtn
         })
     }
 
-    onChangeInput(e) {
-        const name = e.target.name
-        const value = e.target.value
-        this.setState({
-            [name]: value,
-        })
-    }
+    // onSubmit(e) {
+    //     e.preventDefault()
 
-    onSubmit(e) {
-        e.preventDefault()
 
-        this.setState({ emailSent: !this.state.emailSent })
+    //     const user = {
+    //         email: this.state.email
+    //     }
 
-        const user = {
-            email: this.state.email
-        }
+    //     console.log(user)
 
-        console.log(user)
+    //     axios.post('http://localhost:3000/users/add', user)
+    //         .then(res => console.log(res.data))
+    //         .catch(err => console.log(err))
+            
+    //         this.setState({ emailSent: !this.state.emailSent })
 
-        axios.post('http://localhost:3000/users/add', user)
-            .then(res => console.log(res.data))
-            .catch(err => console.log(err))
+    //         this.handleClearForm()
+    // }
 
-        this.handleClearForm()
-    }
-
-    handleClearForm(e) {
-        this.setState({ email: ''})
-    }
+    // handleClearForm(e) {
+    //     this.setState({ email: '', message:'' })
+    // }
 
     render() {
-        const collapsed  = this.state.collapsed
+        const { collapsed, hoverBtn, contactForm } = this.state
         const classOne = collapsed ? 'collapse navbar-collapse justify-content-lg-between' : 'collapse navbar-collapse justify-content-lg-between show'
         const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right'
-        const { hoverSub, email, emailSent } = this.state
+        
 
         return (
             <header className="fixed-top page-header">
@@ -103,14 +103,16 @@ export default class NavBarAbout extends Component {
                                 </li>
                             </ul>
                             <div className="align-middle">
-                                <form className="form-inline mx-4 mx-lg-0 my-3 my-lg-0" onSubmit={this.onSubmit}>
-                                    <input name="email" value={email} onChange={this.onChangeInput} className="form-control mr-sm-2" type="email" placeholder="have@greatday.com"></input>
-                                    <button onMouseEnter={this.toggleHoverSub} onMouseLeave={this.toggleHoverSub} style={ hoverSub ? subBtnHover : subBtn } className="btn my-2 my-sm-0" type="submit">{ emailSent ? "Email Sent!" : "Get In Touch"}</button>!
+                                <form className="form-inline mx-4 mx-lg-0 my-3 my-lg-0">
+                                    <button onClick={this.onClickContactBtn} onMouseEnter={this.toggleHoverBtn} onMouseLeave={this.toggleHoverBtn} style={ hoverBtn || contactForm ? contactBtnHover : contactBtn} className="btn my-2 my-sm-0" type="submit">Contact Me</button>
                             `   </form>
                             </div>
                         </div>
                     </div>
                 </nav>
+                <div className="container" style={ contactForm ? null : contactFormClosed }>
+                    <ContactForm />
+                </div>
             </header>
         )
     }
@@ -127,12 +129,18 @@ const navLinks = {
     letterSpacing: "1px"
 }
 
-const subBtn = {
-        borderColor: "#8fcc9f",
-        color: "#8fcc9f"
+const contactBtn = {
+    borderColor: "#8fcc9f",
+    color: "#8fcc9f",
+    fontWeight: "500"
 }
     
-const subBtnHover = {
+const contactBtnHover = {
     background: "#8fcc9f",
     color: "#1e2958",
+    fontWeight: "500"
+}
+
+const contactFormClosed = {
+    display: "none"
 }
