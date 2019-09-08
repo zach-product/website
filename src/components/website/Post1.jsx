@@ -36,7 +36,7 @@ export default class OnePost extends Component {
                         body: "I was always aware of the importance of relationships, especially when it came to my career. It was drilled into me that my network was everything. Travelling opened my eyes to how relationships go beyond career and shape experiences. For example, a couple put me up in their apartment in London for a few days. They probably don’t even know how much that meant to me. I left getting a glimpse into living there, creating new memories with them, and seeing another completely different side of the city. This is one of many experiences. The more I travelled the more I ended up staying in locations for longer periods because building relationships in one place enriched my experiences. In fact, relationships play a role in almost everything I do, whether I’m trying to find a place to stay in a new city, exploring a new direction in life or even writing a blog post! I’m truly grateful for the amazing experiences I’ve had but I’m even more grateful for the people that made them amazing. I hope that my friends feel the same about having a relationship with me."
                     }
                 ],
-                conclusion: "If you can relate to any of what I’ve said above, are curious to know more about my travels, just want to start a new relationship and/or want to talk about product, please don't hesitate to share your email and get in touch in the top right corner!",
+                conclusion: "If you can relate to any of what I’ve said above, are curious to know more about my travels, just want to start a new relationship and/or want to talk about product, please send me a message using the Contact Me button!",
             }
         }
     }
